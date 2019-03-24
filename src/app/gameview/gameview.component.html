@@ -1,0 +1,18 @@
+<div class="container-view">
+  <div id="game_view" class="hidden">
+    <div id="game_view_info">
+      {{infoMessage}}
+    </div>
+    <div id="game_view_squares">
+      <div *ngFor="let square of squares" (click)="makeMove(square)"
+        [ngClass]="{highlighted: square.isHighlighted}" class="game_view_square">
+        {{ square.owner }}
+      </div>
+    </div>
+    <div id="game_restart">
+      <input type="button" value="Re-Play" onclick="window.location.reload()" />
+      <input type="button" value="Play With Machine" id="AI">
+      <input type="button" value="Play with human" id="human">
+    </div>
+  </div>
+</div>
