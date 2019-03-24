@@ -3,6 +3,7 @@ import { AppContext } from '../services/app.context';
 import { Context } from '../models/context.model';
 import { Square } from '../models/square';
 import { SelectionAlgorithm } from '../utils/selection.algo';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gameview',
@@ -25,7 +26,8 @@ export class GameviewComponent implements OnInit {
 
   currentTurn: string;
   constructor(
-    private appContext: AppContext
+    private appContext: AppContext,
+    private router: Router
   ) {     
     this.currentTurn = this.O;
   }
@@ -40,6 +42,10 @@ export class GameviewComponent implements OnInit {
     for(let i=0; i<9; i++){
       this.squares.push(new Square(i,false,false, null));
     }
+  }
+
+  goToHome(){
+    this.router.navigate(['menu']);
   }
 
   makeMove(square)
